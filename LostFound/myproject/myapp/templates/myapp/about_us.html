@@ -1,0 +1,86 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Feed</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/about.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>  
+    <header>
+    <div id="content">
+              <span>  <!-- "Toggle Sidebar" button replaces the menu icon -->
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <img src="{% static 'myapp/img/collapse.png' %}" alt="Toggle Sidebar">
+                </button>
+            </span>  
+        </div>
+        <div class="logo-image">
+            <img src="{% static 'myapp/img/lflogo.png' %}">
+          </div>
+        <div class="user-name">
+            {% if user.full_name %} 
+            <span>{{ user.full_name }}</span> 
+    {% else %}
+    <span style='color:transparent;'>halu</span>   
+    {% endif %}
+    </div>
+    <div class="user-profile-pic">
+        {% if user.profile_pic %}
+        <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+    {% else %}    <!-- You can also display a default image in case 'profile_pic' is null -->
+        <img src="{% static 'myapp/img/user.png' %}" class="user-profile-pic">
+    {% endif %}
+    </div>
+        </header>
+        <div id="sidebar" class="collapsed">
+            <p>Lost and Found Hub</p>
+            <a href="/home"><img src="{% static 'myapp/img/home-button.png' %}"> Home</a>
+                <a href="/create-post"><img src="{% static 'myapp/img/edit.png' %}">Create Post</a>
+                <a href="/user-profile"><img src="{% static 'myapp/img/user1.png' %}">User Profile</a>
+                <a href="/ratings"><img src="{% static 'myapp/img/rate.png' %}">Ratings</a>
+                <a href="/search"><img src="{% static 'myapp/img/search.png' %}">Search</a>
+                <a href="/about_us"><img src="{% static 'myapp/img/info.png' %}">About Us</a>
+                <br>
+                <br>
+                <br>
+                <a href="/logout"><img src="{% static 'myapp/img/logout.png' %}">Logout</a>
+    </div> 
+    <div id="main">
+        <h2>THE LOST AND FOUND HUB</h2>
+        <div class='logo-image-1'>
+        <img src="{% static 'myapp/img/logo.png' %}" class="user-profile-pic">
+        </div>
+        <hr class="bold-horizontal-line">
+        <div id="container">
+        <h1>Our Mission</h1>
+        <p>Our mission is to connect people through a Lost and Found web app, 
+            making lost items easily reportable and found belongings discoverable 
+            in a secure and user-friendly environment.</p>
+            <br>
+            <br>
+        <h1>About Us</h1>
+        <p>At Lost and Found Hub, our story is woven with the mission to provide a seamless 
+            platform for individuals to connect through the experience of losing and finding. 
+            Committed to fostering a sense of community, we strive to make the process of reporting 
+            lost items and discovering found belongings both effortless and gratifying. Our team 
+            is driven by the belief that the stories behind lost possessions deserve a chance to be 
+            rewritten, and we're dedicated to creating a space where those narratives unfold with ease. 
+            Join us on this journey of connection, empathy, and the joy of rediscovery.</p>
+    </div>
+    <hr class="bold-horizontal-line">
+    <h2>Send us a Message</h2>
+    <div class="socials">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </div>
+</div>
+    <script src="{% static 'myapp/js/home.js' %}"></script>
+    </script>
+</body>
+</html>

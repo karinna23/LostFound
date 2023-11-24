@@ -1,0 +1,109 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Feed</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/user-edit.css' %}">
+</head>
+<body>  
+    <header>
+    <div id="content">
+              <span>  <!-- "Toggle Sidebar" button replaces the menu icon -->
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <img src="{% static 'myapp/img/collapse.png' %}" alt="Toggle Sidebar">
+                </button>
+            </span>  
+        </div>
+        <div class="logo-image">
+            <img src="{% static 'myapp/img/lflogo.png' %}">
+          </div>
+        <div class="user-name">
+            {% if user.full_name %} 
+            <span>{{ user.full_name }}</span> 
+    {% else %}
+    <span style='color:transparent;'>halu</span>   
+    {% endif %}
+    </div>
+    <div class="user-profile-pic">
+        {% if user.profile_pic %}
+        <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+    {% else %}    <!-- You can also display a default image in case 'profile_pic' is null -->
+        <img src="{% static 'myapp/img/user.png' %}" class="user-profile-pic">
+    {% endif %}
+    </div>
+        </header>
+        <div id="sidebar" class="collapsed">
+            <p>Lost and Found Hub</p>
+            <a href="/home"><img src="{% static 'myapp/img/home-button.png' %}"> Home</a>
+                <a href="/create-post"><img src="{% static 'myapp/img/edit.png' %}">Create Post</a>
+                <a href="/user-profile"><img src="{% static 'myapp/img/user1.png' %}">User Profile</a>
+                <a href="/ratings"><img src="{% static 'myapp/img/rate.png' %}">Ratings</a>
+                <a href="/search"><img src="{% static 'myapp/img/search.png' %}">Search</a>
+                <a href="/about_us"><img src="{% static 'myapp/img/info.png' %}">About Us</a>
+                <br>
+                <br>
+                <br>
+                <a href="/logout"><img src="{% static 'myapp/img/logout.png' %}">Logout</a>
+     </div> 
+        <div id="main">
+            <h1>Edit Profile</h1>
+            <div id= "container">
+                <div id="container1">
+                    <div class="profile-picture">
+                            {% if user.profile_pic %}
+                            <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+                        {% else %}    <!-- You can also display a default image in case 'profile_pic' is null -->
+                            <img src="{% static 'myapp/img/user.png' %}" class="user-profile-pic">
+                        {% endif %}
+                    </div>
+                    <!-- User Information -->
+                    <div class="profile-info">
+                        <h2>{{ user.full_name }}</h2>
+                        <p><span class="label">Email: </span>{{ user.email }}</p>
+                        <p><span class="label">Address: </span>{{ user.address }}</p>
+                        <p><span class="label">Contact: </span>{{ user.contact }}</p>
+                        <p><span class="label">Gender: </span>{{ user.gender }}</p>
+
+                        <a href="/user-profile">Save Changes</a>
+                        <!-- Add more user information as needed -->
+                    </div>
+                </div>
+        <div id= "container2">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    <label for="{{ form.profile_pic.id_for_label }}">Profile Picture:</label>
+                    {{ form.profile_pic }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.full_name.id_for_label }}">Full Name:</label>
+                    {{ form.full_name }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email:</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.gender.id_for_label }}">Gender:</label>
+                    {{form.gender}}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.address.id_for_label }}">Address:</label>
+                    {{ form.address }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.contact.id_for_label }}">Contact:</label>
+                    {{ form.contact }}
+                </div>
+                <button type="submit" class="done-button">Done</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <script src="{% static 'myapp/js/home.js' %}"></script>
+</body>
+</html>

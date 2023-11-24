@@ -1,0 +1,123 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Feed</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/add_rates.css' %}">
+</head>
+<body>  
+    <header>
+    <div id="content">
+              <span>  <!-- "Toggle Sidebar" button replaces the menu icon -->
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <img src="{% static 'myapp/img/collapse.png' %}" alt="Toggle Sidebar">
+                </button>
+            </span>  
+        </div>
+        <div class="logo-image">
+            <img src="{% static 'myapp/img/lflogo.png' %}">
+          </div>
+        <div class="user-name">
+            {% if user.full_name %} 
+            <span>{{ user.full_name }}</span> 
+    {% else %}
+    <span style='color:transparent;'>halu</span>   
+    {% endif %}
+    </div>
+    <div class="user-profile-pic">
+        {% if user.profile_pic %}
+        <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+    {% else %}    <!-- You can also display a default image in case 'profile_pic' is null -->
+        <img src="{% static 'myapp/img/user.png' %}" class="user-profile-pic">
+    {% endif %}
+    </div>
+        </header>
+        <div id="sidebar" class="collapsed">
+            <p>Lost and Found Hub</p>
+            <a href="/home"><img src="{% static 'myapp/img/home-button.png' %}"> Home</a>
+                <a href="/create-post"><img src="{% static 'myapp/img/edit.png' %}">Create Post</a>
+                <a href="/user-profile"><img src="{% static 'myapp/img/user1.png' %}">User Profile</a>
+                <a href="/ratings"><img src="{% static 'myapp/img/rate.png' %}">Ratings</a>
+                <a href="/search"><img src="{% static 'myapp/img/search.png' %}">Search</a>
+                <a href="/about_us"><img src="{% static 'myapp/img/info.png' %}">About Us</a>
+                <br>
+                <br>
+                <br>
+                <a href="/logout"><img src="{% static 'myapp/img/logout.png' %}">Logout</a>
+    </div> 
+    <div id="main"> 
+        <h1>Rate Us!</h1> 
+        <div id="container">   
+        <h4>You opinion matters to us!</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <p>How was the quality of the website?</p>
+        <div class="rating">
+            <span class="star" data-rating="1"></span>
+            <span class="star" data-rating="2"></span>
+            <span class="star" data-rating="3"></span>
+            <span class="star" data-rating="4"></span>
+            <span class="star" data-rating="5"></span>
+            <input type="hidden" name="ratings" id="selected-rating">
+        </div>
+        <div class="form-group">
+            <textarea name="comment" placeholder="Leave a comment"></textarea>
+        </div>
+        <button type="submit">Rate</button>
+    </form>
+    <h5><a href="/ratings">Maybe Later</a></h5>
+</div>    
+</div>
+    <script src="{% static 'myapp/js/home.js' %}"></script>
+    <script>
+        const stars = document.querySelectorAll('.star');
+const selectedRating = document.getElementById('selected-rating');
+let currentRating = 0;
+
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-rating');
+        currentRating = rating;
+        updateStars();
+        selectedRating.value = rating;
+    });
+});
+
+stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+        const rating = star.getAttribute('data-rating');
+        highlightStars(rating);
+    });
+
+    star.addEventListener('mouseout', () => {
+        updateStars();
+    });
+});
+
+function updateStars() {
+    stars.forEach(star => {
+        const rating = star.getAttribute('data-rating');
+        if (rating <= currentRating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+function highlightStars(rating) {
+    stars.forEach(star => {
+        const starRating = star.getAttribute('data-rating');
+        if (starRating <= rating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+    </script>
+</body>
+</html>

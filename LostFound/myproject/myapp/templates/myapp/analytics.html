@@ -1,0 +1,108 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Feed</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/home.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>  
+    <header>
+        <div id="content">
+            <span>  <!-- "Toggle Sidebar" button replaces the menu icon -->
+              <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <img src="{% static 'myapp/img/collapse.png' %}" alt="Toggle Sidebar">
+              </button>
+          </span>  
+      </div>
+      <div class="logo-image">
+        <img src="{% static 'myapp/img/lflogo.png' %}">
+      </div>
+      <div class="user-name">
+        {% if user.full_name %} 
+        <span>{{ user.full_name }}</span> 
+{% else %}
+<span style='color:transparent;'>nyeh</span>   
+{% endif %}
+</div>
+<div class="user-profile-pic">
+    {% if user.profile_pic %}
+    <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+{% else %}    <!-- You can also display a default image in case 'profile_pic' is null -->
+    <img src="{% static 'myapp/img/user.png' %}" class="user-profile-pic">
+{% endif %}
+</div>
+        </header>
+        <div id="sidebar" class="collapsed">
+            <p>Lost and Found Hub</p>
+            <a href="/admin_panel"><img src="{% static 'myapp/img/home-button.png' %}"> Home</a>
+            <a href="/analytics"><img src="{% static 'myapp/img/analytics.png' %}">Analytics</a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="/logout"><img src="{% static 'myapp/img/logout.png' %}">Logout</a>
+     </div> 
+        <div id="main" style="background-image: url('myapp/img/bg.png');">
+            <h1>ANALYTICS</h1>
+            <div class="number">
+            <h4>Total Users: {{ total_users }}</h4>
+            <h4>Total Posts: {{ total_posts }}</h4>
+            <h4>Total Ratings: {{ total_ratings }}</h4>
+            </div>
+    <canvas id="analyticsChart" width="600" height="200"></canvas>
+  
+</div>
+    <script src="{% static 'myapp/js/home.js' %}"></script>  
+    <script>
+        var ctx = document.getElementById('analyticsChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Users', 'Posts', 'Ratings'],
+                datasets: [{
+                    label: 'Count',
+                    data: [{{ total_users }}, {{ total_posts }}, {{ total_ratings }}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

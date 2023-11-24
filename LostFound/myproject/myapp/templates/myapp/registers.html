@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/user_login.css' %}">
+</head>
+<body>
+    <header>
+        <h1>LOST AND FOUND</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form class="register-form" method="POST">
+                {% csrf_token %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                <h2>PLEASE REGISTER:</h2>
+                <div class="input-group">
+                    <label for="username">USERNAME:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">PASSWORD:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="password2">CONFIRM PASSWORD:</label>
+                    <input type="password" id="password2" name="password2" required>
+                </div>                
+                <div class="input-group">
+                    <button type="submit">REGISTER</button>
+                </div>
+            </form>
+            <div class="login-button">
+                <p>Already have an account?
+                    <a href="/login">Login Here</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'myapp/js/login.js' %}"></script>
+</body>
+</html>

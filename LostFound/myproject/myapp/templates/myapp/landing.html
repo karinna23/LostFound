@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found</title>
+    <link rel="icon" type="image/png" href="{% static 'myapp/img/lflogo.png' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/landing.css' %}">
+</head>
+<body> 
+    <header>
+    
+</header>
+<main>
+    <div id="main">
+        <h1>WELCOME TO LOST AND FOUND HUB!</h1>
+        <div id= "container">
+            <div id="container1">
+                <div class="logo">
+                        <img src="{% static 'myapp/img/lflogo.png' %}">
+                </div>
+            </div> 
+           
+    <div id= "container2">
+        {% csrf_token %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        <p class="start">LET'S GET STARTED!</p>
+        <div class="buttons">
+        <a class="login" href="/login">SIGN IN</a></p>
+        <a class="register" href="/register">SIGN UP</a></p>
+        </div> 
+    </div>
+</div>    
+<p class="tagline">Lost something? Found something? We are here to help.</p>
+</div>
+</main>
+<script src="{% static 'myapp/js/login.js' %}"></script>
+</body>
+</html>
