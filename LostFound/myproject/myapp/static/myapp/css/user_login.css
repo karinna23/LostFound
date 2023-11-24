@@ -1,0 +1,205 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family:monospace;
+    background-color: #EEEDED;
+}
+
+/* Style the container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+    height: 90vh;
+}
+
+/* Style the login form */
+.login-form, .register-form{
+    background-color: #fffdfd;
+    padding: 5px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+h1 { 
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 8px;
+    font-size: 45px;
+    color: #fff;
+    text-shadow:
+    -2px -2px 0 #885A3A, /* Top-left shadow */
+    2px -2px 0 #885A3A, /* Top-right shadow */
+    -2px 2px 0 #885A3A, /* Bottom-left shadow */
+    2px 2px 0 #885A3A; /* Bottom-right shadow */
+}
+/* Style form elements */
+.input-group {
+    margin: 10px 0;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #885A3A;
+    border-radius: 4px;
+    background-color: #EEEDED;
+}
+
+button {
+    background-color: #885A3A;
+    color: #fff;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #b3955d;
+}
+.register-button, .login-button {
+    text-align: center;
+    position: relative;
+    margin-top: 15px; /* Adjust the spacing between the form and button */
+}
+
+.register-button a, .login-button a {
+    background-color: #191919;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.register-button a:hover {
+    background-color: #707471;
+}
+/* Style error message */
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.register-button p, .login-button p {
+   font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens here */
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding-top: 30px;
+    }
+
+    .register-form{
+        background-color: #fffdfd;
+        padding: 3px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 60px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+    }
+
+    .login-form{
+        background-color: #fffdfd;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 60px;
+        height: 160px;
+        margin-top: -70px;
+    }
+
+    h1 {
+        font-size: 35px; /* Reduce the font size for smaller screens */
+        top: 160px; /* Adjust the vertical position for smaller screens */
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 11px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        flex: 1;
+        padding: 7px;
+        border: 1px solid #885A3A;
+        border-radius: 4px;
+        background-color: #EEEDED;
+    }
+    
+    button {
+        background-color: #885A3A;
+        color: #fff;
+        border: none;
+        padding: 3px 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        display: inline-block;
+        transition: background-color 0.3s;
+    
+    }
+
+    .register-button a, .login-button a{
+        background-color: #191919;
+        color: #fff;
+        text-decoration: none;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        transition: background-color 0.3s;
+    }
+
+    .register-button p, .login-button p {
+       font-size: 12px;
+    }
+    
+
+    #sidebar p{
+        display: none;
+    }
+}

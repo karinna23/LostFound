@@ -1,0 +1,544 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EEEDED;
+    position: relative;
+    height: 100%;
+}
+
+/* Style the header */
+header {
+    position: relative;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+#sidebarCollapse {
+    background-color: #EEEDED;
+    display: none;
+    color: rgb(17, 16, 16);
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    position: absolute;
+    top: -4px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    z-index: 1000; /* Ensure the button is on top of other elements */
+}
+
+#sidebarCollapse:hover {
+    background-color: #b3955d;
+}
+#content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+    top: 7px;
+    left: 15px;
+    padding: 10px;
+    position: absolute; /* Ensure the button doesn't overlap content */
+    z-index: 1; /* Ensure the content is on top of the sidebar */
+    transition: 1s ease-in-out;
+}
+/* Style the side navbar */
+#sidebar {
+    background-color: #885A3A;
+    height: 100%; /* 100% Full-height */
+    width: 100px;  
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0;
+    text-align: center;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: left .7s ease-in-out;
+}
+
+#sidebar p{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: -50px;
+}
+
+#sidebar a {
+    padding: 30px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+    display: block;
+    word-spacing: 10px;
+    margin: 0;
+}
+
+#sidebar a:hover {
+    background-color: #a56938;
+}
+
+#sidebar.active {
+    width: 100px;
+}
+
+#sidebar img{
+    width: 20px;
+    filter: invert();
+}
+
+#main {
+    position: relative;
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-left: 100px;
+  }
+  
+  #content {
+    transition: margin 0.5s;
+  }
+  
+  #sidebar.collapsed .content {
+    margin-left: 0px; /* The width of the sidebar */
+  }
+
+.content {    
+        transition: margin-left .5s;
+        padding: 20px;
+      
+}
+
+
+#container {
+    padding: 20px;
+    position: relative;
+    background-color: white;
+    width: 80%;
+    margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Corrected the color values */
+    overflow: hidden;
+    word-wrap: break-word; /* Enable word wrapping */
+    display: flex; /* Use a flex container to adjust to content */
+    flex-direction: column; /* Stack items vertically */
+    font-size: medium;
+    height: auto;
+    clear: both;
+    margin-bottom: 30px;
+
+}
+
+#info-container {
+    padding: 20px;
+    position: relative;
+    background-color: #ffff;
+    width: 70%;
+    margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Corrected the color values */
+    overflow: hidden;
+    word-wrap: break-word; /* Enable word wrapping */
+    display: flex; /* Use a flex container to adjust to content */
+    flex-direction: column; /* Stack items vertically */
+    font-size: medium;
+    height: auto;
+    clear: both;
+    padding-top: 70px;
+    margin-bottom: 30px;
+    margin-top: -80px;
+
+}
+
+/* Add this to your CSS file */
+.user-profile-pic img{
+    position: relative;
+    margin-right: 13px;
+    width: 40px;
+    height: 40px; /* Adjust the size as needed */
+    border-radius: 50%;
+    float: right;
+    bottom: 60px;
+    border: 1px solid #885A34;
+}
+
+.user-name {
+    position: relative;
+    text-align: right;
+    margin-right: 60px;
+    font-weight: bold;
+    font-size: 15px;
+    bottom: 30px;
+
+}
+
+.logo-image img{
+    position: relative;
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+    left: 50px;
+    z-index: 2;
+}
+/* Style the h1 element to match the sidebar width */
+#page-title {
+    transition: width 0.3s ease;
+}
+
+#sidebar.collapsed + .content {
+    margin-left: 80px; /* Adjust for the sidebar width */
+}
+
+.profile-picture {
+    position: relative;
+    margin-left: 50px;
+    z-index: 2; /* Ensure it's above other elements */
+
+}
+
+.profile-info p {
+    font-size: 15px;
+    margin: 2px;
+}
+
+.edit-button {
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #885A34;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    padding: 8px;
+    width: 100px;
+}
+
+.edit-post {
+    float: right;
+    position: relative;
+    font-size: 12px;
+    background-color: #b7b7b7;
+    border-radius: 0px  5px  5px 0px;
+    border: none;
+    margin-right: -120px;
+    color: #000000;
+    padding: 7px;
+    top: -8px;
+    text-align: center;
+    width: 50px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.edit-post:hover{
+    background-color: #979797;
+}
+
+.edit-button:hover{
+    background-color: #979797;
+}
+
+.label {
+    color: #a8abae;
+}
+.profile-picture img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-left: 100px; /* Ensure the image is a block-level element for margin: auto to work */
+    margin: 0 auto; 
+    border: 5px solid #8f4508;
+    z-index: 2; /* Add a 2px black border around the image */
+}
+
+.post-profile-pic img{
+    position: relative;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px; /* Adjust the size as needed */
+    border-radius: 50%;
+    float: left;
+    bottom: 0px;
+    border: 1px solid #885A34;
+}
+
+.post-image-container {
+    width: 85%; /* Adjust the width as needed */
+    height: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    box-sizing: border-box; /* Include border in the total width */
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex; /* Use flex display */
+    align-items: center;
+    margin-bottom: 20px;  /* Hide the overflowing content */
+    /* Add other styles as needed */
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.bold-horizontal-line {
+    border: 1px solid rgb(77, 77, 77); /* Set the border style and color */
+    border-width: 0 0 2px;
+    width: 90%; /* Set the thickness of the bottom border to make it bold */
+    margin: 10px auto;
+    margin-bottom: 15px; /* Add margin for spacing, adjust as needed */
+}
+
+
+.post-username {
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: -5px;
+    margin-top: 7px;
+    /* Add other styles for the username as needed */
+}
+
+  
+  .post-time {
+    font-size: 10px;
+    color: #888;
+  }
+  
+  .post-description {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  
+  .post-info p {
+    text-align: center;
+    font-size: 15px;
+    margin: -10px;
+    padding: 5px;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+
+  .post-status {
+    position: relative;
+    float: right;
+    background-color: #885a3a;
+    padding: 7px;
+    top: -20px;
+    width: 100px;
+    border-radius: 5px 0px 0px 5px;
+    color: #ffffff;
+    font-size: 12px;
+    right: 50px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .delete-button {
+    background-color: black;
+    color: #ffff;
+    float: right;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 70px;
+    text-align: center;
+    border: none;
+  }
+
+  .delete-button:hover {
+    background-color: #a8abae;
+    color: #000000;
+  }
+
+
+
+
+/* Media query for responsiveness */
+/* Remove this media query */
+@media (max-width: 768px) {
+    #sidebarCollapse {
+        display: block;
+        padding: 5px 6px;
+    }
+
+    #sidebarCollapse img{
+        height: 18px;
+        margin-top: 2px;
+    }
+    #sidebar {
+        left: -250px;
+    }
+
+    #sidebar a{
+        padding: 18px;
+        font-size: 12px;
+        padding-top: 15px;
+
+    }
+
+    header {
+        height: 20px;
+
+    }
+
+    .post-status {
+        padding: 5px;
+        top: -10px;
+        color: #ffffff;
+        font-size: 10px;
+        width: 70px;
+        right: 40px;
+      }
+
+      .edit-post {
+        font-size: 10px;
+        margin-right: -80px;
+        padding: 5px;
+        top: 0;
+        width: 30px;
+    
+    }
+
+    .delete-button {
+        padding: 3px;
+        font-size: 10px;
+        border-radius: 3px;
+        width: 50px;
+      }
+    
+
+    h1 {
+        font-size: medium;
+        margin-top: 15px;
+    }
+
+    #container {
+        padding: 10px;
+        position: relative;
+        margin: auto; /* Center horizontally */
+        left: 0;
+        right: 0;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        padding-right: 15px;
+        padding-left: 5px;
+        height: auto;
+        width: 80%; /* Adjust the width as needed */
+        flex-direction: column; /* Stack items vertically */
+        font-size: medium;
+        clear: both;
+        margin-bottom: 20px;
+        font-size: smaller;
+    }
+
+    .user-name {
+        padding-top: 1px;    
+        margin-right: 55px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .user-profile-pic img{
+        margin-right: 13px;
+        width: 35px;
+        height: 35px; /* Adjust the size as needed */
+        border-radius: 50%;
+        float: right;
+        bottom: 58px;
+    }
+
+    .logo-image img{
+        bottom: 5px;
+        width: 35px;
+        left: 5px;
+    }
+
+
+    .edit-button {
+        font-size: 10px;
+        padding: 5px;
+        width: 80px;
+    }
+
+   
+    
+    .profile-picture img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        display: block; /* Ensure the image is a block-level element for margin: auto to work */
+        margin: 0 auto;
+        border: 4px solid #885A34; /* Add a 2px black border around the image */
+    }
+    
+    .profile-info p{
+        font-size: 12px;
+    }
+    .profile-info .label {
+        font-size: 10px;
+    }
+
+    .post-description {
+        font-size: 12px;
+      }
+
+      .post-image-container {
+        height: 200px; /* Adjust the maximum width as needed */
+        /* Add other styles as needed */
+    }
+
+    .post-info p {
+        font-size: 10px;
+      }
+    
+    .post-info .label{
+        font-size: 7px;
+    }
+
+    .post-time {
+        font-size: 7px;
+      }
+
+      .post-username {
+        font-size: 12px;
+        /* Add other styles for the username as needed */
+    }
+
+    
+    #sidebar.active a {
+        font-size: 12px;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+    #main {
+        margin-left: 0px;
+    }
+ 
+
+    #sidebar.active {
+        width: 80px;
+    }
+    
+    #main.active {
+        margin-left: 75px;
+    }
+
+    #sidebar p{
+        display: none;
+    }
+
+    
+}

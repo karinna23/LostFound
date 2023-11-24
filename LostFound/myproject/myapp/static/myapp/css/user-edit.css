@@ -1,0 +1,428 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EEEDED;
+    position: relative;
+    height: 100%;
+}
+
+/* Style the header */
+header {
+    position: relative;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+#sidebarCollapse {
+    background-color: #EEEDED;
+    display: none;
+    color: rgb(17, 16, 16);
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    position: absolute;
+    top: -4px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    z-index: 1000; /* Ensure the button is on top of other elements */
+}
+
+#sidebarCollapse:hover {
+    background-color: #b3955d;
+}
+#content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+    top: 7px;
+    left: 15px;
+    padding: 10px;
+    position: absolute; /* Ensure the button doesn't overlap content */
+    z-index: 1; /* Ensure the content is on top of the sidebar */
+    transition: 1s ease-in-out;
+}
+/* Style the side navbar */
+#sidebar {
+    background-color: #885A3A;
+    height: 100%; /* 100% Full-height */
+    width: 100px;  
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0;
+    text-align: center;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: left .7s ease-in-out;
+}
+
+#sidebar p{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: -50px;
+}
+
+#sidebar a {
+    padding: 30px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+    display: block;
+    word-spacing: 10px;
+    margin: 0;
+}
+
+#sidebar a:hover {
+    background-color: #a56938;
+}
+
+#sidebar.active {
+    width: 100px;
+}
+
+#sidebar img{
+    width: 20px;
+    filter: invert();
+}
+
+#main {
+    position: relative;
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-left: 100px;
+  }
+
+
+ 
+  #content {
+    transition: margin 0.5s;
+  }
+  
+  #sidebar.collapsed .content {
+    margin-left: 0px; /* The width of the sidebar */
+  }
+
+.content {    
+        transition: margin-left .5s;
+        padding: 20px;
+      
+}
+
+
+#container {
+    overflow: hidden;
+    word-wrap: break-word; /* Enable word wrapping */
+    display: flex; /* Use flex to display the child containers side by side */
+    font-size: medium;
+    column-count: 2; 
+    justify-content: center;
+    position: relative;
+
+
+}
+
+h1 {    
+    background-color: #FFFDFD;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+#container1 { 
+    margin: 30px 50px;
+    width: 30%; /* Limit the maximum width of each container */
+    height: 80vh;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Shadow on right and bottom */
+    padding: 20px;
+    text-align: center;
+    background-color: #885A34;
+    font-size: 15px;
+}
+
+#container2 {
+    margin: 30px 50px;
+    width: 30%; /* Limit the maximum width of each container */
+    height: 80vh;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Shadow on right and bottom */
+    padding: 20px;
+    text-align: center;
+    background-color: #c2c2c2;
+    font-size: 15px;
+}
+/* Style the h1 element to match the sidebar width */
+#page-title {
+    transition: width 0.3s ease;
+}
+
+#sidebar.collapsed + .content {
+    margin-left: 80px; /* Adjust for the sidebar width */
+}
+
+.user-profile-pic img{
+    position: relative;
+    margin-right: 13px;
+    width: 40px;
+    height: 40px; /* Adjust the size as needed */
+    border-radius: 50%;
+    float: right;
+    bottom: 60px;
+    border: 1px solid #885A34;
+}
+
+.user-name {
+    position: relative;
+    text-align: right;
+    margin-right: 60px;
+    font-weight: bold;
+    font-size: 15px;
+    bottom: 30px;
+
+}
+
+.logo-image img{
+    position: relative;
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+    left: 50px;
+    z-index: 2;
+}
+.profile-picture img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    border: solid 3px white;
+    margin-left: 100px; /* Ensure the image is a block-level element for margin: auto to work */
+    margin: 0 auto; 
+    z-index: 2; /* Add a 2px black border around the image */
+}
+
+.label {
+    color: #a8abae;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Add margin between form groups */
+}
+
+/* Optional: Additional styling for labels and input fields */
+.form-group label {
+    font-size: 12px;
+    color: #060606;
+    display: block; /* Display labels on separate lines */
+}
+
+/* Optional: Add spacing or styling to form input elements if needed */
+.form-group input,
+.form-group select {
+    width: 70%; /* Make inputs expand to full width */
+    padding: 8px; /* Add padding for input elements */
+    border: 1px solid rgb(29, 28, 28); /* Add a border for input elements */
+    background-color: #c2c2c2;
+
+}
+::-webkit-file-upload-button {
+    padding: 3px;
+    background-color: #000;
+    color: #fff;
+    float: right; /* Align the button to the right */
+    border: none;
+
+  }
+
+h2 {
+    color: #ffff;
+}
+
+.profile-info p {
+    color: #ffff;
+}
+
+.profile-info a {
+    background-color: #f5f5f5;
+    padding: 8px;
+    color: #000;
+    font-size: 12px;
+    border-radius: 15px;
+    float: right;
+    margin-top: 50px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile-info a:hover {
+    background-color: #d5d5d5;
+}
+
+.done-button{
+    float: right;
+    border: none;
+    padding: 5px;
+    border-radius: 12px;
+    width: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #885A34;
+}
+
+.done-button:hover{
+    background-color: #a8abae;
+}
+
+
+
+/* Media query for responsiveness */
+/* Remove this media query */
+@media (max-width: 768px) {
+    #sidebarCollapse {
+        display: block;
+        padding: 5px 8px;
+    }
+
+    #sidebarCollapse img{
+        height: 18px;
+        margin-top: 1px;
+    }
+    #sidebar {
+        left: -250px;
+    }
+
+    #sidebar a{
+        padding: 18px;
+        font-size: 5px;
+        padding-top: 15px;
+
+    }
+
+    header {
+        height: 20px;
+
+    }
+
+    h1 {
+        font-size: medium;
+    }
+
+    .profile-picture img{
+        position: relative;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        display: block; /* Ensure the image is a block-level element for margin: auto to work */
+        margin: 0 auto;
+    }
+
+    .done-button{
+        font-size: 10px;
+        margin-top: 15px;
+    }
+
+    #container1, #container2 { 
+        margin: 20px 15px;
+        width: 40%; /* Limit the maximum width of each container */
+        height: 70vh;
+        padding: 10px;
+        text-align: center;
+        background-color: #885A34;
+        font-size: 10px;
+    }
+
+    .user-name {
+        padding-top: 1px;    
+        margin-right: 55px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .user-profile-pic img{
+        margin-right: 13px;
+        width: 35px;
+        height: 35px; /* Adjust the size as needed */
+        border-radius: 50%;
+        float: right;
+        bottom: 58px;
+    }
+
+    .logo-image img{
+        bottom: 5px;
+        width: 35px;
+        left: 5px;
+    }
+
+
+    .profile-info a {
+        font-size: 10px; 
+        margin-top: 125px;
+    }
+
+    .label {
+        color: #a8abae;
+        font-size: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px; /* Add margin between form groups */
+    }
+    
+    /* Optional: Additional styling for labels and input fields */
+    .form-group label {
+        font-size: 8px;
+        color: #ffffff;
+        display: block; /* Display labels on separate lines */
+    }
+    
+    /* Optional: Add spacing or styling to form input elements if needed */
+    .form-group input,
+    .form-group select {
+        width: 70%; /* Make inputs expand to full width */
+        padding: 7px; /* Add padding for input elements */
+        border: 1px solid rgb(29, 28, 28); /* Add a border for input elements */
+        background-color: #885A34;
+        font-size: 10px;
+    
+    }
+
+    ::-webkit-file-upload-button {
+        font-size: 7px;
+    
+      }
+
+    #sidebar.active a {
+        font-size: 12px;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+    #main {
+        margin-left: 0px;
+    }
+ 
+
+    #sidebar.active {
+        width: 80px;
+    }
+    
+    #main.active {
+        margin-left: 80px;
+    }
+
+    #sidebar p{
+        display: none;
+    }
+    
+}

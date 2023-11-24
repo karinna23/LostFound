@@ -1,0 +1,397 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EEEDED;
+    position: relative;
+    height: 100%;
+}
+
+/* Style the header */
+header {
+    position: relative;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+#sidebarCollapse {
+    background-color: #EEEDED;
+    display: none;
+    color: rgb(17, 16, 16);
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    position: absolute;
+    top: -4px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    z-index: 1000; /* Ensure the button is on top of other elements */
+}
+
+#sidebarCollapse:hover {
+    background-color: #b3955d;
+}
+#content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+    top: 7px;
+    left: 15px;
+    padding: 10px;
+    position: absolute; /* Ensure the button doesn't overlap content */
+    z-index: 1; /* Ensure the content is on top of the sidebar */
+    transition: 1s ease-in-out;
+}
+/* Style the side navbar */
+#sidebar {
+    background-color: #885A3A;
+    height: 100%; /* 100% Full-height */
+    width: 100px;  
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0;
+    text-align: center;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: left .7s ease-in-out;
+}
+
+#sidebar p{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: -50px;
+}
+
+#sidebar a {
+    padding: 30px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+    display: block;
+    word-spacing: 10px;
+    margin: 0;
+}
+
+#sidebar a:hover {
+    background-color: #a56938;
+}
+
+#sidebar.active {
+    width: 100px;
+}
+
+#sidebar img{
+    width: 20px;
+    filter: invert();
+}
+
+#main {
+    position: relative;
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-left: 100px;
+  }
+  
+  #content {
+    transition: margin 0.5s;
+  }
+  
+  #sidebar.collapsed .content {
+    margin-left: 0px; /* The width of the sidebar */
+  }
+
+.content {    
+        transition: margin-left .5s;
+        padding: 20px;
+      
+}
+
+
+#container {
+    padding: 20px;
+    position: relative;
+    background-color: #885a34ba;
+    top: 20px;
+    width: 90%;
+    margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Corrected the color values */
+    overflow: hidden;
+    word-wrap: break-word; /* Enable word wrapping */
+    display: flex; /* Use a flex container to adjust to content */
+    flex-direction: column; /* Stack items vertically */
+    font-size: medium;
+    height: auto;
+    clear: both;
+    margin-bottom: 30px;
+    border-radius: 20px;
+
+}
+
+
+/* Add this to your CSS file */
+/* Style the h1 element to match the sidebar width */
+
+#sidebar.collapsed + .content {
+    margin-left: 80px; /* Adjust for the sidebar width */
+}
+
+.user-profile-pic img{
+    position: relative;
+    margin-right: 13px;
+    width: 40px;
+    height: 40px; /* Adjust the size as needed */
+    border-radius: 50%;
+    float: right;
+    bottom: 60px;
+    border: 1px solid #885A34;
+}
+
+.user-name {
+    position: relative;
+    text-align: right;
+    margin-right: 60px;
+    font-weight: bold;
+    font-size: 15px;
+    bottom: 30px;
+
+}
+
+.logo-image-1 img{
+    background-color: #ffffff;
+    padding: 10px;
+    position: relative;
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    left: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Corrected the color values */
+}
+
+.logo-image img{
+    position: relative;
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+    left: 50px;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 50px;
+    margin-top: 10px;
+    text-align: center;
+    color: #885A3A;
+    letter-spacing: 3px;
+    margin-left: 20px;
+}
+
+.bold-horizontal-line {
+    border: 1px solid rgb(77, 77, 77); /* Set the border style and color */
+    border-width: 0 0 2px;
+    width: 90%; /* Set the thickness of the bottom border to make it bold */
+    margin: 50px auto;
+    margin-bottom: 15px; /* Add margin for spacing, adjust as needed */
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+p{
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.socials {
+    margin-top: -10px;
+    background-color: transparent;
+    position: relative;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    left: 40px;
+
+}
+
+
+.fa {
+    position: relative;
+    padding: 20px;
+    font-size: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+
+  
+  .fa-instagram {
+    background: #ff53a3;
+    color: white;
+  }
+  
+/* Media query for responsiveness */
+/* Remove this media query */
+@media (max-width: 768px) {
+    #sidebarCollapse {
+        display: block;
+        padding: 5px 6px;
+    }
+
+    #sidebarCollapse img{
+        height: 18px;
+        margin-top: 2px;
+    }
+    #sidebar {
+        left: -250px;
+    }
+
+    .socials {
+        left: 0px;
+    
+    }
+
+    #sidebar a{
+        padding: 18px;
+        font-size: 12px;
+        padding-top: 15px;
+
+    }
+
+    .logo-image-1 img{
+        width: 300px;
+        left: -10px;
+    }
+    
+    h2 {
+        font-size: 20px;
+        color: #885A3A;
+        margin-left: 0;
+        letter-spacing: 0;
+    }
+    
+    .bold-horizontal-line {
+        margin: 30px auto;
+    }
+    
+    h1 {
+        font-size: 25px;
+        margin-bottom: 5px;
+
+    }
+    
+    p{
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    header {
+        height: 20px;
+
+    }
+
+    #container {
+        padding: 10px;
+        top: 1px;
+    }
+
+    .user-name {
+        padding-top: 1px;    
+        margin-right: 55px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .user-profile-pic img{
+        margin-right: 13px;
+        width: 35px;
+        height: 35px; /* Adjust the size as needed */
+        border-radius: 50%;
+        float: right;
+        bottom: 58px;
+    }
+
+    .logo-image img{
+        bottom: 5px;
+        width: 35px;
+        left: 5px;
+    }
+
+
+    .edit-button {
+        font-size: 10px;
+        padding: 5px;
+        width: 80px;
+    }
+
+   
+    .profile-picture img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        display: block; /* Ensure the image is a block-level element for margin: auto to work */
+        margin: 0 auto;
+        border: 4px solid #885A34; /* Add a 2px black border around the image */
+    }
+
+    #sidebar.active a {
+        font-size: 12px;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+    #main {
+        margin-left: 0px;
+    }
+ 
+
+    #sidebar.active {
+        width: 80px;
+    }
+    
+    #main.active {
+        margin-left: 75px;
+    }
+
+    #sidebar p{
+        display: none;
+    }
+
+    
+}
